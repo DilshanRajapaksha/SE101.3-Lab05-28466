@@ -1,0 +1,149 @@
+(Q1)
+
+public abstract class BankAccount {
+
+    private String accountNumber;
+    private double balance;
+
+    public String getAccountNumber() {
+        return accountNumber;
+    }
+
+    public void setAccountNumber(String accountNumber) {
+        this.accountNumber = accountNumber;
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+
+    public void setBalance(double balance) {
+        this.balance = balance;
+    }
+
+    public abstract double calculateInterest();
+}
+
+public class SavingsAccount extends BankAccount {
+
+    private static double interestRate = 12.0;
+
+    @Override
+    public double calculateInterest() {
+        return balance * interestRate / 100;
+    }
+}
+
+public class CheckingAccount extends BankAccount {
+
+    private static double interestRate = 2.0;
+
+    @Override
+    public double calculateInterest() {
+        return balance * interestRate / 100;
+    }
+}
+
+public class Main {
+
+    public static void main(String[] args) {
+        SavingsAccount savingsAccount = new SavingsAccount();
+        savingsAccount.setAccountNumber("123456789");
+        savingsAccount.setBalance(2000000.0);
+
+        CheckingAccount checkingAccount = new CheckingAccount();
+        checkingAccount.setAccountNumber("987654321");
+        checkingAccount.setBalance(1000000.0);
+
+        double savingsInterest = savingsAccount.calculateInterest();
+        double checkingInterest = checkingAccount.calculateInterest();
+
+        System.out.println("Savings interest: " + savingsInterest);
+        System.out.println("Checking interest: " + checkingInterest);
+    }
+}
+
+
+
+
+
+
+
+
+    @Override
+    public double calculateArea() {
+        return length * width;
+    }
+
+    @Override
+    public double calculatePerimeter() {
+        return 2 * (length + width);
+    }
+}
+
+// Triangle class
+public class Triangle implements Shape {
+    private double base;
+    private double height;
+    private double sideA;
+    private double sideB;
+    private double sideC;
+
+    public Triangle(double base, double height, double sideA, double sideB, double sideC) {
+        this.base = base;
+        this.height = height;
+        this.sideA = sideA;
+        this.sideB = sideB;
+        this.sideC = sideC;
+    }
+
+    public double getBase() {
+        return base;
+    }
+
+    public void setBase(double base) {
+        this.base = base;
+    }
+
+    public double getHeight() {
+        return height;
+    }
+
+    public void setHeight(double height) {
+        this.height = height;
+    }
+
+    public double getSideA() {
+        return sideA;
+    }
+
+    public void setSideA(double sideA) {
+        this.sideA = sideA;
+    }
+
+    public double getSideB() {
+        return sideB;
+    }
+
+    public void setSideB(double sideB) {
+        this.sideB = sideB;
+    }
+
+    public double getSideC() {
+        return sideC;
+    }
+
+    public void setSideC(double sideC) {
+        this.sideC = sideC;
+    }
+
+    @Override
+    public double calculateArea() {
+        return 0.5 * base * height;
+    }
+
+    @Override
+    public double calculatePerimeter() {
+        return sideA + sideB + sideC;
+    }
+}
